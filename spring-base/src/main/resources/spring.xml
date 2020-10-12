@@ -2,13 +2,45 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--基于ref方式依赖注入-->
     <bean id="thingOne" class="org.example.beans.ThingOne">
         <constructor-arg ref="thingThree"></constructor-arg>
         <constructor-arg ref="thingTwo"></constructor-arg>
     </bean>
     <bean id="thingTwo" class="org.example.beans.ThingTwo"></bean>
     <bean id="thingThree" class="org.example.beans.ThingThree"></bean>
+    <!--基于type 、value方式依赖注入-->
+    <bean id="tom" class="org.example.beans.Person">
+        <constructor-arg type="int" value="19"></constructor-arg>
+        <constructor-arg type="java.lang.String" value="Tom"></constructor-arg>
+    </bean>
+    <!--基于name、value依赖方式注入-->
+    <bean id="amy" class="org.example.beans.Person">
+        <constructor-arg name="age" value="16"></constructor-arg>
+        <constructor-arg name="name" value="Amy"></constructor-arg>
+    </bean>
+    <!--index、value依赖方式注入-->
+    <bean id="sam" class="org.example.beans.Person">
+        <constructor-arg index="0" value="Sam"></constructor-arg>
+        <constructor-arg index="1" value="9"></constructor-arg>
+    </bean>
+    <bean id="caoxueqin" class="org.example.beans.Person">
+        <constructor-arg name="name" value="曹雪芹"></constructor-arg>
+        <constructor-arg name="age" value="100"></constructor-arg>
+    </bean>
+    <bean id="honglou" class="org.example.beans.Book">
+        <property name="name" value="红楼梦"></property>
+        <property name="person" ref="caoxueqin"></property>
+    </bean>
 
-<!--    <bean id="orderService" class="org.example.service.OrderService"></bean>-->
-<!--    <bean id="userService" class="org.example.service.UserService" autowire="byName"></bean>-->
+    <bean id="orderService" class="org.example.service.OrderService"></bean>
+    <bean id="userService" class="org.example.service.UserService" autowire="byType"></bean>
+
+
+    <!--通过byType自动装配时发现一个类型存在多种实现，则会报错-->
+    <!--    <bean id="bService" class="org.example.service.BService" autowire="byType"></bean>-->
+    <bean id="a1Service" class="org.example.service.A1Service"></bean>
+    <bean id="a2Service" class="org.example.service.A2Service"></bean>
+
+    <bean id="cService" class="org.example.service.CService" autowire="constructor"></bean>
 </beans>

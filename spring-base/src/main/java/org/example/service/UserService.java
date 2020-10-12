@@ -1,9 +1,9 @@
 package org.example.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserService {
     private OrderService orderService;
+    private OrderService OrderSvc;
 
     public OrderService getOrderService() {
         return orderService;
@@ -11,5 +11,13 @@ public class UserService {
 
     public void setOrderService(OrderService orderService) {
         this.orderService = orderService;
+    }
+
+    public OrderService getOrderSvc() {
+        return OrderSvc;
+    }
+
+    public void setOrderSvc(OrderService orderSvc) {
+        OrderSvc = orderSvc;
     }
 }
