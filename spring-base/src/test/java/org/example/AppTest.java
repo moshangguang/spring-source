@@ -4,9 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.example.beans.ThingOne;
 import org.example.config.MyConfig;
-import org.example.service.CService;
-import org.example.service.CommandManager;
-import org.example.service.UserService;
+import org.example.service.*;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -16,6 +14,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Unit test for simple App.
  */
 public class AppTest {
+    @Test
+    public void test06() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
+        CommandManager1 commandManager1 = ac.getBean(CommandManager1.class);
+        System.out.println(commandManager1.createCommandService());
+        System.out.println(commandManager1.createCommandService());
+        CommandManager2 commandManager2 = ac.getBean(CommandManager2.class);
+        System.out.println(commandManager2.createCommandService());
+        System.out.println(commandManager2.createCommandService());
+    }
+
     @Test
     public void test05() {
         ApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
