@@ -9,8 +9,8 @@ public class TestSmartLifecycle implements SmartLifecycle {
 
     @Override
     public void start() {
-        System.out.println("TestSmartLifecycle start...");
         isRun = true;
+        System.out.println("TestSmartLifecycle start...");
     }
 
     @Override
@@ -21,7 +21,7 @@ public class TestSmartLifecycle implements SmartLifecycle {
     @Override
     public void stop(Runnable callback) {
         System.out.println("TestSmartLifecycle stop callback...");
-        callback.run();//这行代码可以让容器回调的时候立即关闭，否则容器会等待30s在关闭
+        //执行callback.run()可以让容器立即关闭，否则容器会等待30s再关闭
     }
 
     @Override
