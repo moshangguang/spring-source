@@ -16,6 +16,19 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class AppTest {
     @Test
+    public void test09() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
+        ac.stop();
+    }
+
+    @Test
+    public void test08() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
+        ac.start();
+        ac.stop();
+    }
+
+    @Test
     public void test07() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig2.class);
         ac.close();
