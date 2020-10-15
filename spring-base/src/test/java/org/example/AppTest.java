@@ -18,6 +18,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class AppTest {
     @Test
+    public void test11() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
+        ac.scan("org.example.beans");
+        ac.refresh();
+    }
+
+    @Test
     public void test10() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig3.class);
         System.out.println(ac.getBean(D.class));
