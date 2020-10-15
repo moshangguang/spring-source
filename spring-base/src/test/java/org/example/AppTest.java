@@ -2,9 +2,11 @@ package org.example;
 
 import static org.junit.Assert.assertTrue;
 
+import org.example.beans.D;
 import org.example.beans.ThingOne;
 import org.example.config.MyConfig;
 import org.example.config.MyConfig2;
+import org.example.config.MyConfig3;
 import org.example.service.*;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -15,6 +17,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Unit test for simple App.
  */
 public class AppTest {
+    @Test
+    public void test10() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig3.class);
+        System.out.println(ac.getBean(D.class));
+    }
+
     @Test
     public void test09() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
