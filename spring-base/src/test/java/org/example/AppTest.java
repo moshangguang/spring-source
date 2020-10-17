@@ -17,9 +17,21 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class AppTest {
     @Test
+    public void test13() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig5.class);
+        Object robot = ac.getBean("robotFactoryBean");
+        System.out.println(robot);
+        System.out.println(robot.getClass());
+        Object factoryBean = ac.getBean("&robotFactoryBean");
+        System.out.println(factoryBean);
+        System.out.println(factoryBean.getClass());
+    }
+
+    @Test
     public void test12() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig5.class);
     }
+
     @Test
     public void test11() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig4.class);
