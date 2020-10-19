@@ -11,6 +11,7 @@ public class AServiceBeanFactoryPostProcessor implements BeanFactoryPostProcesso
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         BeanDefinition beanDefinition = beanFactory.getBeanDefinition("a1Service");
-        beanDefinition.setAutowireCandidate(false);
+        beanDefinition.setPrimary(true);
+        //beanDefinition.setAutowireCandidate(false);
     }
 }
