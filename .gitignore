@@ -1,3 +1,6 @@
 /.idea/
 /spring-base/.idea/
 /spring-base/target/
+/spring-bd/.idea/
+/spring-bd/spring-bd.iml
+/spring-bd/target/
