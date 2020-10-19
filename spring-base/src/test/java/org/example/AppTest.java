@@ -2,9 +2,7 @@ package org.example;
 
 import static org.junit.Assert.assertTrue;
 
-import org.example.beans.A;
-import org.example.beans.D;
-import org.example.beans.ThingOne;
+import org.example.beans.*;
 import org.example.config.*;
 import org.example.service.*;
 import org.junit.Test;
@@ -12,10 +10,40 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Arrays;
+
 /**
  * Unit test for simple App.
  */
 public class AppTest {
+    @Test
+    public void test16() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
+        HelloService helloService = ac.getBean(HelloService.class);
+        System.out.println(helloService.getWorldService());
+        System.out.println(helloService.getFooService());
+    }
+
+    @Test
+    public void test15() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig5.class);
+        FruitPlate fruitPlate = ac.getBean(FruitPlate.class);
+        System.out.println(Arrays.toString(fruitPlate.getFruits()));
+        System.out.println(fruitPlate.getFruitList());
+        System.out.println(fruitPlate.getFruitSet());
+        System.out.println(fruitPlate.getFruitMap());
+        System.out.println(fruitPlate.getPrimary());
+    }
+
+    @Test
+    public void test14() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig5.class);
+        MovieRecommender recommender = ac.getBean(MovieRecommender.class);
+        System.out.println(recommender.getMovieFinder());
+        System.out.println(recommender.getMovieCatalog());
+        System.out.println(recommender.getCustomerPreferenceDao());
+    }
+
     @Test
     public void test13() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig5.class);

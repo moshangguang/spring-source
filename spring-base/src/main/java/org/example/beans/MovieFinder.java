@@ -1,7 +1,7 @@
-package org.example.service;
+package org.example.beans;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class WorldService {
+public class MovieFinder {
 }
