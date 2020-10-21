@@ -25,9 +25,13 @@ public class AppTest {
     public void test05() {
         ClassPathXmlApplicationContext cc = new ClassPathXmlApplicationContext("spring.xml");
         BeanDefinition xiaomi = cc.getBeanFactory().getBeanDefinition("xiaomi");
-        System.out.println(xiaomi.getBeanClassName());
+        System.out.println("xiaomi beanClassName:" + xiaomi.getBeanClassName());
+        System.out.println("xiaomi factoryBeanName:" + xiaomi.getFactoryBeanName());
+        System.out.println("xiaomi factoryMethodName:" + xiaomi.getFactoryMethodName());
+        System.out.println("__________________");
         BeanDefinition tcl = cc.getBeanFactory().getBeanDefinition("tcl");
-        System.out.println(tcl.getBeanClassName());
+        System.out.println("tcl beanClassName:" + tcl.getBeanClassName());
+        System.out.println("tcl factoryMethodName:" + tcl.getFactoryMethodName());
     }
 
     @Test
