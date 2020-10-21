@@ -2,4 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="abPerson" abstract="true" scope="prototype">
+        <property name="age" value="18"></property>
+    </bean>
+    <bean id="sam" class="org.example.beans.Person" parent="abPerson">
+        <property name="name" value="Sam"></property>
+    </bean>
+    <bean id="abPerson2" abstract="true" scope="singleton">
+        <constructor-arg name="age" value="16"></constructor-arg>
+    </bean>
+    <bean name="amy" class="org.example.beans.Person" parent="abPerson2">
+        <constructor-arg name="name" value="Amy"></constructor-arg>
+    </bean>
 </beans>
