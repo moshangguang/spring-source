@@ -8,10 +8,15 @@
     <bean id="sam" class="org.example.beans.Person" parent="abPerson">
         <property name="name" value="Sam"></property>
     </bean>
-    <bean id="abPerson2" abstract="true" scope="singleton">
+    <bean id="amy" class="org.example.beans.Person">
+        <constructor-arg name="name" value="Amy"></constructor-arg>
         <constructor-arg name="age" value="16"></constructor-arg>
     </bean>
-    <bean name="amy" class="org.example.beans.Person" parent="abPerson2">
-        <constructor-arg name="name" value="Amy"></constructor-arg>
+    <bean id="john" class="org.example.beans.Person">
+        <constructor-arg index="0" value="John"></constructor-arg>
+        <constructor-arg index="1" value="12"></constructor-arg>
     </bean>
+    <bean id="tvFactory" class="org.example.beans.TVFactory"></bean>
+    <bean id="xiaomi" factory-bean="tvFactory" factory-method="createMi"></bean>
+    <bean id="tcl" class="org.example.beans.TVFactory" factory-method="createTCL"></bean>
 </beans>
