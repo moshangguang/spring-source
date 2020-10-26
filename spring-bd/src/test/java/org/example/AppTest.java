@@ -1,26 +1,69 @@
 package org.example;
 
-import static org.junit.Assert.assertTrue;
-
 import org.example.beans.Person;
 import org.example.config.MyConfig;
+import org.example.config.MyConfig2;
 import org.example.service.TestAService;
 import org.junit.Test;
-import org.springframework.beans.MutablePropertyValues;
-import org.springframework.beans.PropertyValue;
-import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.Arrays;
 import java.util.Map;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest {
+
+    @Test
+    public void test08() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
+        BeanDefinition myConfigBd = ac.getBeanFactory().getBeanDefinition("myConfig");
+        System.out.println("myConfigBd source:" + myConfigBd.getSource());
+        BeanDefinition a1ServiceBd = ac.getBeanFactory().getBeanDefinition("a1Service");
+        System.out.println("a1Service source:" + a1ServiceBd.getSource());
+        System.out.println("________________");
+        ClassPathXmlApplicationContext cc = new ClassPathXmlApplicationContext("spring.xml");
+        BeanDefinition amyBd = cc.getBeanFactory().getBeanDefinition("amy");
+        System.out.println("amy source:" + amyBd.getSource());
+    }
+
+    @Test
+    public void test07() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class, MyConfig2.class);
+        System.out.println("___myConfigBd___");
+        BeanDefinition myConfigBd = ac.getBeanFactory().getBeanDefinition("myConfig");
+        System.out.println("myConfigBd class:" + myConfigBd.getClass());
+        for (String attributeName : myConfigBd.attributeNames()) {
+            System.out.println(attributeName + ":" + myConfigBd.getAttribute(attributeName));
+        }
+        System.out.println("___myConfig2___");
+        BeanDefinition myConfig2Bd = ac.getBeanFactory().getBeanDefinition("myConfig2");
+        System.out.println("myConfig2Bd class:" + myConfig2Bd.getClass());
+        for (String attributeName : myConfig2Bd.attributeNames()) {
+            System.out.println(attributeName + ":" + myConfig2Bd.getAttribute(attributeName));
+        }
+        System.out.println("___a1ServiceBd___");
+        BeanDefinition a1ServiceBd = ac.getBeanFactory().getBeanDefinition("a1Service");
+        System.out.println("a1ServiceBd class:" + a1ServiceBd.getClass());
+        for (String attributeName : a1ServiceBd.attributeNames()) {
+            System.out.println(attributeName + ":" + myConfigBd.getAttribute(attributeName));
+        }
+    }
+
+    @Test
+    public void test06() {
+        ClassPathXmlApplicationContext cc = new ClassPathXmlApplicationContext("spring.xml");
+        BeanDefinition beanDefinition = cc.getBeanFactory().getBeanDefinition("a");
+        System.out.println("a initMethodName:" + beanDefinition.getInitMethodName());
+        System.out.println("a destroyMethodName:" + beanDefinition.getDestroyMethodName());
+        cc.close();
+    }
+
     @Test
     public void test05() {
         ClassPathXmlApplicationContext cc = new ClassPathXmlApplicationContext("spring.xml");

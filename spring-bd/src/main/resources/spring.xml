@@ -19,4 +19,5 @@
     <bean id="tvFactory" class="org.example.beans.TVFactory"></bean>
     <bean id="xiaomi" factory-bean="tvFactory" factory-method="createMi"></bean>
     <bean id="tcl" class="org.example.beans.TVFactory" factory-method="createTCL"></bean>
+    <bean id="a" class="org.example.beans.A" init-method="init" destroy-method="destroy"></bean>
 </beans>
