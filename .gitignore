@@ -4,3 +4,6 @@
 /spring-bd/.idea/
 /spring-bd/spring-bd.iml
 /spring-bd/target/
+/spring-beanFactoryPostProcessor/spring-beanFactoryPostProcessor.iml
+/spring-beanFactoryPostProcessor/target/
+/spring-beanFactoryPostProcessor/.idea/
