@@ -3,7 +3,10 @@ package org.example;
 import static org.junit.Assert.assertTrue;
 
 import org.example.config.MyConfig;
+import org.example.service.OrderService;
 import org.junit.Test;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -12,8 +15,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class AppTest {
     @Test
+    public void test03() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
+        RootBeanDefinition rootBeanDefinition = new RootBeanDefinition(OrderService.class);
+        ac.registerBeanDefinition("orderSvc", rootBeanDefinition);
+        System.out.println(ac.getBean("orderSvc").getClass());
+    }
+
+    @Test
     public void test02() {
-        ApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
     }
 
     @Test
