@@ -3,6 +3,7 @@ package org.example;
 import static org.junit.Assert.assertTrue;
 
 import org.example.config.MyConfig;
+import org.example.service.HelloService;
 import org.example.service.OrderService;
 import org.junit.Test;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
@@ -14,6 +15,14 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * Unit test for simple App.
  */
 public class AppTest {
+    @Test
+    public void test04() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
+        ac.scan("org.example.service");
+        ac.refresh();
+        System.out.println(ac.getBean("orderService"));
+    }
+
     @Test
     public void test03() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
