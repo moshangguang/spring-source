@@ -123,9 +123,12 @@ public class AppTest {
     @Test
     public void test03() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
-        UserService userService = ac.getBean(UserService.class);
-        System.out.println(userService.getOrderService());
-        System.out.println(userService.getOrderSvc());
+        UserService userService1 = ac.getBean("userService1", UserService.class);
+        System.out.println("userService1.orderService:" + userService1.getOrderService());
+        System.out.println("userService1.orderSvc:" + userService1.getOrderSvc());
+        UserService userService2 = ac.getBean("userService2", UserService.class);
+        System.out.println("userService2.orderService:" + userService2.getOrderService());
+        System.out.println("userService2.orderSvc:" + userService2.getOrderSvc());
     }
 
     @Test
