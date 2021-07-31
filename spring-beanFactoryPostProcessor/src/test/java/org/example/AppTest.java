@@ -6,14 +6,21 @@ import org.example.config.MyConfig;
 import org.example.service.HelloService;
 import org.example.service.OrderService;
 import org.junit.Test;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.io.IOException;
 
 /**
  * Unit test for simple App.
  */
+
+
 public class AppTest {
     @Test
     public void test04() {

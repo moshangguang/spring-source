@@ -2,8 +2,14 @@ package org.example.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.stereotype.Service;
 
 @Configuration
+@Service
 @ComponentScan("org.example.service")
 public class MyConfig {
+    class A {
+    }
+
 }
