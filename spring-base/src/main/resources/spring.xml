@@ -25,6 +25,10 @@
         <constructor-arg index="0" value="Sam"></constructor-arg>
         <constructor-arg index="1" value="9"></constructor-arg>
     </bean>
+    <bean id="exampleBean" class="org.example.beans.ExampleBean">
+        <constructor-arg index="0" value="7500000"/>
+        <constructor-arg index="1" value="42"/>
+    </bean>
     <bean id="caoxueqin" class="org.example.beans.Person">
         <constructor-arg name="name" value="曹雪芹"></constructor-arg>
         <constructor-arg name="age" value="100"></constructor-arg>

@@ -117,7 +117,6 @@ public class AppTest {
     @Test
     public void test04() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
-        System.out.println(ac.getBean(CService.class));
     }
 
     @Test
@@ -133,6 +132,7 @@ public class AppTest {
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
         System.out.println(ac.getBean("honglou"));
     }
+
 
     @Test
     public void test01() {

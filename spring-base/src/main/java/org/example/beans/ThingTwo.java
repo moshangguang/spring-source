@@ -1,4 +1,4 @@
 package org.example.beans;
 
-public class ThingTwo {
+public class ThingTwo extends ThingThree {
 }
