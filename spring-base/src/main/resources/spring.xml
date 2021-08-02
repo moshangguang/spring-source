@@ -39,8 +39,8 @@
     </bean>
 
     <bean id="orderService" class="org.example.service.OrderService"></bean>
-    <bean id="userService" class="org.example.service.UserService" autowire="byType"></bean>
-
+    <bean id="userService1" class="org.example.service.UserService" autowire="byName"></bean>
+    <bean id="userService2" class="org.example.service.UserService" autowire="byType"></bean>
 
     <!--通过byType自动装配时发现一个类型存在多种实现，则会报错-->
     <!--    <bean id="bService" class="org.example.service.BService" autowire="byType"></bean>-->

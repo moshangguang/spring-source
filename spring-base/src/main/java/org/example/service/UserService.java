@@ -3,7 +3,7 @@ package org.example.service;
 
 public class UserService {
     private OrderService orderService;
-    private OrderService OrderSvc;
+    private OrderService orderSvc;
 
     public OrderService getOrderService() {
         return orderService;
@@ -14,10 +14,10 @@ public class UserService {
     }
 
     public OrderService getOrderSvc() {
-        return OrderSvc;
+        return orderSvc;
     }
 
     public void setOrderSvc(OrderService orderSvc) {
-        OrderSvc = orderSvc;
+        this.orderSvc = orderSvc;
     }
 }
