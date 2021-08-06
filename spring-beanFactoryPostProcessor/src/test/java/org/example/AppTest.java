@@ -6,6 +6,8 @@ import org.example.beanFactoryPostProcessor.Test2BeanFactoryPostProcessor;
 import org.example.beanFactoryPostProcessor.Test3BeanDefinitionRegistryPostProcessor;
 import org.example.config.MyConfig;
 import org.example.config.MyConfig2;
+import org.example.config.MyConfig3;
+import org.example.mapper.UserMapper;
 import org.example.service.HelloService;
 import org.example.service.OrderService;
 import org.junit.Test;
@@ -27,6 +29,19 @@ import java.io.IOException;
 
 
 public class AppTest {
+    @Test
+    public void test07() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class, MyConfig3.class);
+    }
+
+    @Test
+    public void test06() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig2.class);
+        UserMapper userMapper = ac.getBean(UserMapper.class);
+        System.out.println(userMapper.getClass());
+        //  System.out.println(userMapper.getUser(1));
+    }
+
     @Test
     public void test05() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();

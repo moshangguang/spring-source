@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Service;
 
-@Configuration
+//@Configuration
 @ComponentScan("org.example.service")
 public class MyConfig {
     class A {
