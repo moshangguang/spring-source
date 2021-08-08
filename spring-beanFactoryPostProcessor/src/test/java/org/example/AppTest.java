@@ -7,6 +7,7 @@ import org.example.beanFactoryPostProcessor.Test3BeanDefinitionRegistryPostProce
 import org.example.config.MyConfig;
 import org.example.config.MyConfig2;
 import org.example.config.MyConfig3;
+import org.example.dao.UserDao;
 import org.example.mapper.UserMapper;
 import org.example.service.HelloService;
 import org.example.service.OrderService;
@@ -30,8 +31,44 @@ import java.io.IOException;
 
 public class AppTest {
     @Test
+    public void test09() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(
+                MyConfig.class,
+                MyConfig3.class);
+        UserDao userDao = ac.getBean(UserDao.class);
+        System.out.println(userDao);
+    }
+
+    @Test
+    public void test08() {
+        class A {
+        }
+        A a = new A();
+        System.out.println("a hashCode:" + a.hashCode());
+        System.out.println("a identityHashCode:" + System.identityHashCode(a));
+        class B {
+            @Override
+            public int hashCode() {
+                return 0;
+            }
+        }
+        B b1 = new B();
+        System.out.println("b1 hashCode:" + b1.hashCode());
+        System.out.println("b1 identityHashCode:" + System.identityHashCode(b1));
+        B b2 = new B();
+        System.out.println("b2 hashCode:" + b2.hashCode());
+        System.out.println("b2 identityHashCode:" + System.identityHashCode(b2));
+    }
+
+    @Test
     public void test07() {
-        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class, MyConfig3.class);
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(
+                MyConfig.class,
+                MyConfig3.class);
+        MyConfig myConfig = ac.getBean(MyConfig.class);
+        MyConfig3 myConfig3 = ac.getBean(MyConfig3.class);
+        System.out.println(myConfig.getClass());
+        System.out.println(myConfig3.getClass());
     }
 
     @Test

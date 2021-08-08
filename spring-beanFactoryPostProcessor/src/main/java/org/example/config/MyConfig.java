@@ -1,15 +1,15 @@
 package org.example.config;
 
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.stereotype.Service;
+import org.example.pojo.C;
+import org.example.registrar.MyConfig4Registrar;
+import org.springframework.context.annotation.*;
 
-//@Configuration
 @ComponentScan("org.example.service")
+@Import(MyConfig4Registrar.class)
 public class MyConfig {
-    class A {
-    }
 
+    @Bean
+    public C c() {
+        return new C();
+    }
 }
