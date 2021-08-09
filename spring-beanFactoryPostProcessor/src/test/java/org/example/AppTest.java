@@ -31,6 +31,11 @@ import java.io.IOException;
 
 public class AppTest {
     @Test
+    public void test10() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
+    }
+
+    @Test
     public void test09() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(
                 MyConfig.class,
