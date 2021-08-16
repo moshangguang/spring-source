@@ -1,7 +1,10 @@
 package org.example.service;
 
-import org.springframework.context.annotation.Configuration;
+import org.example.registrar.TestRegistrar;
+import org.springframework.context.annotation.Import;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
+@Import(TestRegistrar.class)
 public class FooService {
 }

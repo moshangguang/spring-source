@@ -8,6 +8,10 @@ import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.type.AnnotationMetadata;
 
 public class MyConfig4Registrar implements ImportBeanDefinitionRegistrar {
+    public MyConfig4Registrar() {
+        System.out.println("666");
+    }
+
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry, BeanNameGenerator importBeanNameGenerator) {
         AnnotatedGenericBeanDefinition beanDefinition = new AnnotatedGenericBeanDefinition(MyConfig4.class);
