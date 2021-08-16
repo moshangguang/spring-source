@@ -17,5 +17,10 @@ public class MyConfig5 {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig5.class);
+        BeanDefinition myConfig5 = ac.getBeanDefinition("myConfig5");
+        BeanDefinition getA = ac.getBeanDefinition("getA");
+        System.out.println("myConfig5 className:" + myConfig5.getBeanClassName());
+        System.out.println("getA className:" + getA.getBeanClassName());
+        System.out.println("getA factoryMethodName:" + getA.getFactoryMethodName());
     }
 }
