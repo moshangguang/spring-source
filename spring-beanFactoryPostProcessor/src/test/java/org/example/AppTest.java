@@ -7,12 +7,14 @@ import org.example.beanFactoryPostProcessor.Test3BeanDefinitionRegistryPostProce
 import org.example.config.MyConfig;
 import org.example.config.MyConfig2;
 import org.example.config.MyConfig3;
+import org.example.config.MyConfig6;
 import org.example.dao.UserDao;
 import org.example.mapper.UserMapper;
 import org.example.service.HelloService;
 import org.example.service.OrderService;
 import org.junit.Test;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
@@ -30,6 +32,15 @@ import java.io.IOException;
 
 
 public class AppTest {
+    @Test
+    public void test11() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig6.class);
+        BeanDefinition myConfig5 = ac.getBeanDefinition("myConfig6");
+        BeanDefinition getA = ac.getBeanDefinition("a");
+        System.out.println("myConfig6 className:" + myConfig5.getBeanClassName());
+        System.out.println("a className:" + getA.getBeanClassName());
+        System.out.println("a factoryMethodName:" + getA.getFactoryMethodName());
+    }
     @Test
     public void test10() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);
