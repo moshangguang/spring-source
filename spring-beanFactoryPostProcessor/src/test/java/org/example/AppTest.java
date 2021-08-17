@@ -22,9 +22,6 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.io.IOException;
 
 /**
  * Unit test for simple App.
@@ -36,11 +33,12 @@ public class AppTest {
     public void test11() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig6.class);
         BeanDefinition myConfig5 = ac.getBeanDefinition("myConfig6");
-        BeanDefinition getA = ac.getBeanDefinition("a");
-        System.out.println("myConfig6 className:" + myConfig5.getBeanClassName());
-        System.out.println("a className:" + getA.getBeanClassName());
-        System.out.println("a factoryMethodName:" + getA.getFactoryMethodName());
+        BeanDefinition getA = ac.getBeanDefinition("aBean");
+        System.out.println("myConfig6 class:" + myConfig5.getBeanClassName());
+        System.out.println("aBean class:" + getA.getBeanClassName());
+        System.out.println("aBean factoryMethodName:" + getA.getFactoryMethodName());
     }
+
     @Test
     public void test10() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig.class);

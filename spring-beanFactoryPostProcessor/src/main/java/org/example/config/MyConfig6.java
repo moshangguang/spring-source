@@ -4,7 +4,7 @@ import org.example.pojo.A;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.*;
 
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @ComponentScan("org.example.service")
 @ImportResource("spring.xml")
 public class MyConfig6 {
