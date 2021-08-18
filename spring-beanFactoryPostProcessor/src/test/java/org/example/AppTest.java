@@ -9,6 +9,7 @@ import org.example.dao.UserDao;
 import org.example.mapper.UserMapper;
 import org.example.service.HelloService;
 import org.example.service.OrderService;
+import org.example.service.Test1Service;
 import org.junit.Test;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -26,6 +27,26 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 
 public class AppTest {
+    @Test
+    public void test13() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig9.class);
+        System.out.println(ac.getBean(Test1Service.class));
+        System.out.println(ac.getBean(UserDao.class));
+    }
+
+    @Test
+    public void test12() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig7.class, MyConfig8.class);
+        MyConfig7 myConfig7 = ac.getBean(MyConfig7.class);
+        System.out.println("myConfig7 class:" + myConfig7.getClass());
+        System.out.println("a bean:" + myConfig7.getA());
+        System.out.println("a bean:" + myConfig7.getA());
+        MyConfig8 myConfig8 = ac.getBean(MyConfig8.class);
+        System.out.println("myConfig8 class:" + myConfig8.getClass());
+        System.out.println("b bean:" + myConfig8.getB());
+        System.out.println("b bean:" + myConfig8.getB());
+    }
+
     @Test
     public void test11() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig6.class);
