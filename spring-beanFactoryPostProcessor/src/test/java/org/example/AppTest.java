@@ -4,10 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.example.beanFactoryPostProcessor.Test2BeanFactoryPostProcessor;
 import org.example.beanFactoryPostProcessor.Test3BeanDefinitionRegistryPostProcessor;
-import org.example.config.MyConfig;
-import org.example.config.MyConfig2;
-import org.example.config.MyConfig3;
-import org.example.config.MyConfig6;
+import org.example.config.*;
 import org.example.dao.UserDao;
 import org.example.mapper.UserMapper;
 import org.example.service.HelloService;
