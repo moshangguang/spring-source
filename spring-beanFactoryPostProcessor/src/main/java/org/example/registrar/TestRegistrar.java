@@ -7,11 +7,9 @@ import org.springframework.stereotype.Component;
 
 public class TestRegistrar implements ImportBeanDefinitionRegistrar {
     public TestRegistrar() {
-        System.out.println("999");
     }
 
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
-        System.out.println("999");
     }
 }

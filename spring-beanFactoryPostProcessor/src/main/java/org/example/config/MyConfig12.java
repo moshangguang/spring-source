@@ -4,6 +4,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
 @ComponentScan("org.example.service")
-@Import(MyConfig10.class)
-public class MyConfig9 {
+@Import(MyConfig10Registrar.class)
+public class MyConfig12 {
 }
