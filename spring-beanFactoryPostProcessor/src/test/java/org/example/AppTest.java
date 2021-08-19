@@ -10,6 +10,7 @@ import org.example.mapper.UserMapper;
 import org.example.service.HelloService;
 import org.example.service.OrderService;
 import org.example.service.Test1Service;
+import org.example.service2.Test2Service;
 import org.junit.Test;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -27,11 +28,19 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 
 public class AppTest {
+
+    @Test
+    public void test14() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig10.class);
+        System.out.println(ac.getBean(Test2Service.class));
+        System.out.println(ac.getBean(UserDao.class));
+    }
+
     @Test
     public void test13() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig9.class);
-        System.out.println(ac.getBean(Test1Service.class));
-        System.out.println(ac.getBean(UserDao.class));
+        System.out.println("test1Service:" + ac.getBean(Test1Service.class));
+        System.out.println("userDao:" + ac.getBean(UserDao.class));
     }
 
     @Test
