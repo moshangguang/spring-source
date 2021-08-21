@@ -29,10 +29,17 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class AppTest {
     @Test
+    public void test16() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig13.class);
+        System.out.println("userDao:" + ac.getBean(UserDao.class));
+    }
+
+    @Test
     public void test15() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig12.class);
         System.out.println("userDao:" + ac.getBean(UserDao.class));
     }
+
     @Test
     public void test14() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig11.class);
