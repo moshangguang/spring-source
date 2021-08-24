@@ -18,13 +18,10 @@ public class HelloScanFilter implements TypeFilter {
         }
         try {
             Class<?> aClass = Class.forName(metadataReader.getClassMetadata().getClassName());
-            return aClass.isAnnotationPresent(HelloScan.class);
+            return aClass.getAnnotation(HelloScan.class) != null;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-        AnnotationMetadata annotationMetadata = metadataReader.getAnnotationMetadata();
-        System.out.println(annotationMetadata.getAnnotationTypes());
         return false;
     }
 }

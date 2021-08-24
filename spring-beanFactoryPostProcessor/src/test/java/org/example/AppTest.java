@@ -10,7 +10,7 @@ import org.example.mapper.UserMapper;
 import org.example.service.HelloService;
 import org.example.service.OrderService;
 import org.example.service.Test1Service;
-import org.example.service2.Test2Service;
+import org.example.service.Test2Service;
 import org.junit.Test;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -32,6 +32,7 @@ public class AppTest {
     @Test
     public void test17() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig14.class);
+        System.out.println("test2Service:" + ac.getBean(Test2Service.class));
     }
 
     @Test
