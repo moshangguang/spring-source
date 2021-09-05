@@ -28,6 +28,15 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 
 public class AppTest {
+    @Test
+    public void test19() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig16.class);
+    }
+
+    @Test
+    public void test18() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfig15.class);
+    }
 
     @Test
     public void test17() {
